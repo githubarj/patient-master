@@ -1,0 +1,5 @@
+.header-container {
+  background: var(--header-color);
+  padding: 10px 0px 20px 20px;
+  border-bottom: 1px solid var(--accent-color);
+}

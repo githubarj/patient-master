@@ -1,0 +1,86 @@
+.body-container {
+  padding: 0px 20px;
+}
+
+.action-area {
+  display: flex;
+  padding: 12px 0 8px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-inputs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-inputs > select,
+input {
+  padding: 5px 7px;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  max-width: 150px;
+}
+
+.search-patient-elements {
+  display: flex;
+  align-items: center;
+}
+
+.search-patient-elements > input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.fingerprint-icon {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--header-color);
+  border: 1px solid var(--accent-color);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.fingerprint-icon > svg {
+  color: var(--green-shade);
+}
+
+/* Other sde fo the section */
+.action-btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.add-patient {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2.5px 5px;
+  background: var(--btn-color);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+.export-btns,
+.export-btn-icons {
+  display: flex;
+  align-items: center;
+}
+
+.export-btns {
+  border: 1px solid var(--accent-color);
+  border-radius: 3px;
+}
+
+.export-btn-icons {
+  background: none;
+  padding: 3px;
+  border: none;
+}
+
+.ebi-first {
+  border-right: 1px solid var(--accent-color);
+}

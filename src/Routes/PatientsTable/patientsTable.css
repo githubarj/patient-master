@@ -1,0 +1,6 @@
+.patients-table-container {
+  background: var(--main-color);
+  border-radius: 10px;
+  min-height: 100%;
+  overflow: hidden;
+}
