@@ -13,74 +13,17 @@ import {
   westlandsWards,
 } from "../../Data/data";
 import "./form.css";
+import { formObject, formUpdate } from "../Utility/utils";
 
 function Form() {
   //get reference of the form
   const formRef = useRef(null);
 
   //state to store the data from the form
-  const [formData, setFormData] = useState({
-    status: "",
-    name: {
-      prefix: "",
-      givenName: "",
-      middleName: "",
-      surname: "",
-    },
-    aliasame: "",
-    gender: "",
-    bloodType: "",
-    patientImage: "",
-    age: { years: "", dateOfBirth: "" },
-    maritalStatus: "",
-    identify: "",
-    primaryContact: "",
-    religion: "",
-    nationality: "",
-    occupation: "",
-    knewUsThrough: "",
-    location: {
-      residence: "",
-      county: "",
-      constituency: "",
-      ward: "",
-    },
-  });
+  const [formData, setFormData] = useState(formObject);
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    switch (name) {
-      case "prefix":
-      case "givenName":
-      case "middleName":
-      case "surname":
-        setFormData((prev) => ({
-          ...prev,
-          name: { ...prev.name, [name]: value },
-        }));
-        break;
-
-      case "years":
-      case "dateOfBirth":
-        setFormData((prev) => ({
-          ...prev,
-          age: { ...prev.age, [name]: value },
-        }));
-        break;
-
-      case "residence":
-      case "constituency":
-      case "county":
-      case "ward":
-        setFormData((prev) => ({
-          ...prev,
-          location: { ...prev.location, [name]: value },
-        }));
-        break;
-
-      default:
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    formUpdate(e,setFormData);
   }
 
   return (
