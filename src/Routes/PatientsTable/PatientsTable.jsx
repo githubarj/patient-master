@@ -4,8 +4,8 @@ import "./patientsTable.css";
 
 export default function PatientsTable() {
   return (
-    <div className="patients-table-container">
-      <Header />
+    <div className="page-container ">
+      <Header heading={"Patient Master Register"} />
       <Body />
     </div>
   );

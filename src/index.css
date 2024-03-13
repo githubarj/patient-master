@@ -22,6 +22,8 @@ body::-webkit-scrollbar {
   --header-color: #f4f5f4;
   --main-color: #fefeff;
   --green-shade: #2ac22a;
+  --grey-shade: #706f6f;
+  --red-shade: #ea3c4d;
 }
 
 .normal-text {

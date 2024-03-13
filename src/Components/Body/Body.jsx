@@ -4,7 +4,13 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { AiOutlineFileExcel } from "react-icons/ai";
 import { AiOutlineFilePdf } from "react-icons/ai";
 import { status } from "../../Data/data";
+import Table from "../Table/Table";
+import { useNavigate } from "react-router";
+
 function Body() {
+  //Navigate to next add patient page
+  const navigate = useNavigate();
+
   return (
     <div className="body-container">
       <section className="action-area">
@@ -31,7 +37,10 @@ function Body() {
 
         {/* The add button and export buttons */}
         <div className="action-btns">
-          <button className="add-patient">
+          <button
+            className="add-patient"
+            onClick={() => navigate("patient-form")}
+          >
             <AiOutlineUserAdd /> New Patient
           </button>
           <div className="export-btns">
@@ -44,6 +53,7 @@ function Body() {
           </div>
         </div>
       </section>
+      <Table />
     </div>
   );
 }

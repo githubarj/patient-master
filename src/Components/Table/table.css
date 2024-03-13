@@ -1,0 +1,59 @@
+.patient-records {
+  width: 100%;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0px 1px;
+  background: var(--accent-color);
+}
+
+.patient-headers {
+  background: var(--accent-color);
+  padding: 5px 10px;
+}
+
+.table-headers-row > th {
+  font-weight: 400;
+  text-align: center;
+  padding: 8px;
+}
+
+.patient-table-body {
+  background: var(--main-color);
+}
+
+.patient-table-body-rows > td {
+  text-align: center;
+  padding: 10px;
+}
+
+.tbody-status-cell {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  max-width: 75px;
+}
+
+.status-cell-active {
+  background: #b6ea8f;
+  color: var(--green-shade);
+  border-color: var(--green-shade);
+}
+
+.status-cell-inactive {
+  color: #ea3c4d;
+  background: #feecee;
+  border-color: #ea3c4d;
+}
+
+.status-cell-pending {
+  color: #706f6f;
+  background: var(--accent-color);
+  border-color: #706f6f;
+}
+
+.tbody-actions-select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--accent-color);
+}

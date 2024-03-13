@@ -2,6 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Routes/Layouts/Layout";
 import PatientsTable from "./Routes/PatientsTable/PatientsTable";
+import PatientsForm from "./Routes/PatientsForm/PatientsForm";
 
 const routes = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <PatientsTable />,
+      },
+      {
+        path: "patient-form",
+        element: <PatientsForm />,
       },
     ],
   },
