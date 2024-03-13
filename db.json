@@ -1,0 +1,184 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "patientNo": "P001",
+      "patientName": "John Doe",
+      "registrationDate": "2024-03-13",
+      "primaryContact": "0712356789",
+      "residence": "Nairobi",
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "patientNo": "P002",
+      "patientName": "Jane Smith",
+      "registrationDate": "2024-03-12",
+      "primaryContact": "0712398765",
+      "residence": "Mombasa",
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "patientNo": "P003",
+      "patientName": "Michael Johnson",
+      "registrationDate": "2024-03-11",
+      "primaryContact": "0712349876",
+      "residence": "Kisumu",
+      "status": "Active"
+    },
+    {
+      "id": 4,
+      "patientNo": "P004",
+      "patientName": "Emily Brown",
+      "registrationDate": "2024-03-10",
+      "primaryContact": "0712387654",
+      "residence": "Eldoret",
+      "status": "Pending"
+    },
+    {
+      "id": 5,
+      "patientNo": "P005",
+      "patientName": "Christopher Wilson",
+      "registrationDate": "2024-03-09",
+      "primaryContact": "0712345678",
+      "residence": "Nakuru",
+      "status": "Inactive"
+    },
+    {
+      "id": 6,
+      "patientNo": "P006",
+      "patientName": "Sarah Taylor",
+      "registrationDate": "2024-03-08",
+      "primaryContact": "0712312345",
+      "residence": "Thika",
+      "status": "Pending"
+    },
+    {
+      "id": 7,
+      "patientNo": "P007",
+      "patientName": "David Martinez",
+      "registrationDate": "2024-03-07",
+      "primaryContact": "0712365432",
+      "residence": "Kisii",
+      "status": "Inactive"
+    },
+    {
+      "id": 8,
+      "patientNo": "P008",
+      "patientName": "Jessica Garcia",
+      "registrationDate": "2024-03-06",
+      "primaryContact": "0712318765",
+      "residence": "Kitale",
+      "status": "Active"
+    },
+    {
+      "id": 9,
+      "patientNo": "P009",
+      "patientName": "Daniel Brown",
+      "registrationDate": "2024-03-05",
+      "primaryContact": "0712376543",
+      "residence": "Malindi",
+      "status": "Active"
+    },
+    {
+      "id": 10,
+      "patientNo": "P010",
+      "patientName": "Ashley Hernandez",
+      "registrationDate": "2024-03-04",
+      "primaryContact": "0712367890",
+      "residence": "Kakamega",
+      "status": "Pending"
+    },
+    {
+      "id": 11,
+      "patientNo": "P011",
+      "patientName": "Matthew Thompson",
+      "registrationDate": "2024-03-03",
+      "primaryContact": "0712323456",
+      "residence": "Garissa",
+      "status": "Active"
+    },
+    {
+      "id": 12,
+      "patientNo": "P012",
+      "patientName": "Emma Martinez",
+      "registrationDate": "2024-03-02",
+      "primaryContact": "0712390123",
+      "residence": "Bungoma",
+      "status": "Inactive"
+    },
+    {
+      "id": 13,
+      "patientNo": "P013",
+      "patientName": "Liam Johnson",
+      "registrationDate": "2024-03-01",
+      "primaryContact": "0712334567",
+      "residence": "Meru",
+      "status": "Pending"
+    },
+    {
+      "id": 14,
+      "patientNo": "P014",
+      "patientName": "Olivia Smith",
+      "registrationDate": "2024-02-29",
+      "primaryContact": "0712309876",
+      "residence": "Embu",
+      "status": "Active"
+    },
+    {
+      "id": 15,
+      "patientNo": "P015",
+      "patientName": "Noah Brown",
+      "registrationDate": "2024-02-28",
+      "primaryContact": "0712380123",
+      "residence": "Naivasha",
+      "status": "Pending"
+    },
+    {
+      "id": 16,
+      "patientNo": "P016",
+      "patientName": "Ava Wilson",
+      "registrationDate": "2024-02-27",
+      "primaryContact": "0712357890",
+      "residence": "Vihiga",
+      "status": "Active"
+    },
+    {
+      "id": 17,
+      "patientNo": "P017",
+      "patientName": "James Taylor",
+      "registrationDate": "2024-02-26",
+      "primaryContact": "0712372345",
+      "residence": "Busia",
+      "status": "Inactive"
+    },
+    {
+      "id": 18,
+      "patientNo": "P018",
+      "patientName": "Charlotte Garcia",
+      "registrationDate": "2024-02-25",
+      "primaryContact": "0712349012",
+      "residence": "Nanyuki",
+      "status": "Active"
+    },
+    {
+      "id": 19,
+      "patientNo": "P019",
+      "patientName": "Benjamin Hernandez",
+      "registrationDate": "2024-02-24",
+      "primaryContact": "0712316789",
+      "residence": "Nyeri",
+      "status": "Pending"
+    },
+    {
+      "id": 20,
+      "patientNo": "P020",
+      "patientName": "Mia Martinez",
+      "registrationDate": "2024-02-23",
+      "primaryContact": "0712378901",
+      "residence": "Lamu",
+      "status": "Inactive"
+    }
+  ]
+}
