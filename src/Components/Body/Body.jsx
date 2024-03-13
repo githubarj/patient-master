@@ -16,7 +16,7 @@ function Body() {
       <section className="action-area">
         {/* The search inputs and select */}
         <div className="search-inputs">
-          <select name="" id="">
+          <select name="" id=""  >
             <option value="">Filter by status</option>
             {status.map((item, index) => (
               <option key={index} value={item}>

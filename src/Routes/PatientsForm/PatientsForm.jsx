@@ -1,5 +1,5 @@
-import { Form } from "react-router-dom";
 import Header from "../../Components/Header/Header";
+import Form from "../../Components/Form/Form";
 
 function PatientsForm() {
   return (

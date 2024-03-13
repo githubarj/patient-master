@@ -15,7 +15,7 @@
 }
 
 .search-inputs > select,
-input {
+.search-inputs  input {
   padding: 5px 7px;
   border: 1px solid var(--accent-color);
   border-radius: 5px;
