@@ -10,10 +10,10 @@ form {
 
 .form-itself select,
 .form-itself input {
-  padding: 10px !important ;
-  border: 1px solid var(--accent-color);
+  padding: 10px ;
+  border: 1px solid #d9d8d9;
   border-radius: 5px;
-  width: 100% !important ;
+  width: 100% ;
 }
 
 .form-itself label {
@@ -22,6 +22,7 @@ form {
   gap: 10px;
   align-items: flex-start;
   flex-grow: 1;
+  max-width: 300px
 }
 
 .form-body {
@@ -69,4 +70,53 @@ form {
 .suffix-gname {
   flex-grow: 1;
   width: 100%;
+}
+
+
+.suffix-gname select {
+  width: fit-content !important;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: #d9d8d9;
+}
+
+.suffix-gname option {
+  background: #fff;
+}
+
+.suffix-gname input {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.fr1-row-nolabel {
+  width: 100%;
+}
+
+.given-name-label {
+  max-width: none !important;
+}
+
+.form-row-1-inputs label {
+  max-width:none!important;
+}
+
+.fr1-row-labled label {
+  flex: 1 !important;
+}
+
+.form-row-1-image {
+  height: 100%;
+}
+
+.patient-image-label{
+  max-width: fit-content !important ;
+}
+
+.patient-image-label > p {
+  opacity: 0;
+}
+
+.form-row-1-image {
+  background: #d9d8d9;
+  text-align: center;
 }

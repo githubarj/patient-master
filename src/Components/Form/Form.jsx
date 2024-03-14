@@ -51,7 +51,9 @@ function Form() {
 
           <div className="form-row-1">
             <div className="form-row-1-inputs">
+              <label htmlFor="givenName" className="given-name-label" >Patient Name:
               <div className="fr1-row fr1-row-nolabel ">
+                
                 <div className="suffix-gname">
                   <select
                     onChange={handleChange}
@@ -69,6 +71,7 @@ function Form() {
                   <input
                     type="text"
                     name="givenName"
+                    id="givenName"
                     value={formData.name.givenName}
                     onChange={handleChange}
                     placeholder="Given name"
@@ -91,7 +94,8 @@ function Form() {
                   placeholder="Surname"
                 />
               </div>
-              <div className="fr1-row">
+              </label>
+              <div className="fr1-row fr1-row-labled ">
                 <label htmlFor="aliasName">
                   Alias Name:
                   <input
@@ -141,13 +145,18 @@ function Form() {
                 </label>
               </div>
             </div>
+            
+               <label htmlFor= "patientImage" className= "patient-image-label" > 
+              <p> patientImage  </p>   
             <input
               className="form-row-1-image"
               type="text"
               id="patientImage"
               name="patientImage"
-              placeholder="+ Patient Image"
+              placeholder="Patient Image"
+
             />
+            </label>
           </div>
 
           <div className="form-row-2">
