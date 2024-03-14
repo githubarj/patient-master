@@ -7,7 +7,7 @@ export const formObject = {
     middleName: "",
     surname: "",
   },
-  aliasame: "",
+  aliasName: "",
   gender: "",
   bloodType: "",
   patientImage: "",
@@ -25,6 +25,7 @@ export const formObject = {
     constituency: "",
     ward: "",
   },
+  registrationDate: "",
 };
 
 //function to watch out for chnage in the form and implement it
@@ -67,15 +68,14 @@ export function formUpdate(e, setFormData) {
   }
 }
 
-
-//My Reducerfunction
+//My Reducer function
 
 export function reducer(prev, dispatchedFunction) {
-  const {type, payload} = dispatchedFunction
+  const { type, payload } = dispatchedFunction;
   switch (type) {
-    case "clear": 
+    case "clear":
       return payload;
-      break;
+
     case "prefix":
     case "givenName":
     case "middleName":
@@ -84,14 +84,18 @@ export function reducer(prev, dispatchedFunction) {
         ...prev,
         name: { ...prev.name, [type]: payload },
       };
-      break;
+
     case "years":
     case "dateOfBirth":
       return {
         ...prev,
-        age: {...prev.age, [type]: payload ,  years: howOld(prev.age.dateOfBirth)},
+        age: {
+          ...prev.age,
+          [type]: payload,
+          years: howOld(prev.age.dateOfBirth),
+        },
       };
-      break;
+
     case "residence":
     case "constituency":
     case "county":
@@ -100,13 +104,15 @@ export function reducer(prev, dispatchedFunction) {
         ...prev,
         location: { ...prev.location, [type]: payload },
       };
-      break;
-
+    case "registrationDate":
+      return {
+        ...prev,
+        [type]: payload,
+      };
     default:
       return { ...prev, [type]: payload };
   }
 }
-
 
 //function to calculate number of years
 function howOld(dob) {
@@ -122,3 +128,4 @@ function howOld(dob) {
   }
   return age;
 }
+

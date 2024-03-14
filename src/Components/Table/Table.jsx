@@ -38,11 +38,11 @@ export default function Table() {
                     <AiOutlineUser />
                   </div>
                 </td>
-                <td>{item.patientNo}</td>
-                <td>{item.patientName}</td>
+                <td>{`P${item.id}`} </td>
+                <td>{item.name.givenName + " " + " " + item.name.surname}</td>
                 <td>{item.registrationDate}</td>
                 <td>{item.primaryContact}</td>
-                <td>{item.residence}</td>
+                <td>{item.location.residence}</td>
 
                 <td>
                   <div

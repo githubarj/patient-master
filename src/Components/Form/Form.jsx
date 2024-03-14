@@ -1,4 +1,4 @@
-import { useRef, useState, useContext } from "react";
+import { useRef, useContext } from "react";
 import {
   bloodTypes,
   gender,
@@ -14,28 +14,51 @@ import {
 } from "../../Data/data";
 import "./form.css";
 import { FormContext } from "../../Routes/PatientsForm/PatientsForm";
-
+import axios from "axios";
 
 function Form() {
   //get reference of the form
   const formRef = useRef(null);
 
-  //Doing it with state 
+  //Doing it with state
   //state to store the data from the form
   // const [formData, setFormData] = useState(formObject);
-    // function handleChange(e) {
+  // function handleChange(e) {
   //   formUpdate(e,setFormData);
   // }
-  const { dispatch, formData } = useContext(FormContext)
-  function handleChange (e){
-    let {name , value} = e.target
-    dispatch({type: name, payload: value})
+  const { dispatch, formData } = useContext(FormContext);
+  function handleChange(e) {
+    let { name, value } = e.target;
+    dispatch({ type: name, payload: value });
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    // Get today's date
+    const today = new Date();
+    // Format today's date as YYYY-MM-DD
+    const formattedDate = today.toISOString().split("T")[0];
+    console.log(formattedDate)
+      dispatch({ type: "registrationDate", payload: formattedDate });
+    try {
+     
+      let response = await axios.post(
+        "http://localhost:3000/patients",
+        formData
+      );
+      if (!(response.status >= 200 && response.status <= 300)) {
+        throw new Error(response);
+      }
+
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <div className="form-container">
-      <form ref={formRef} className="form-itself">
+      <form ref={formRef} className="form-itself" onSubmit={handleSubmit}>
         <section className="form-active-select">
           <label htmlFor="">
             Status:
@@ -58,49 +81,49 @@ function Form() {
 
           <div className="form-row-1">
             <div className="form-row-1-inputs">
-              <label htmlFor="givenName" className="given-name-label" >Patient Name:
-              <div className="fr1-row fr1-row-nolabel ">
-                
-                <div className="suffix-gname">
-                  <select
-                    onChange={handleChange}
-                    name="prefix"
-                    id="suffix"
-                    value={formData.name.prefix}
-                  >
-                    {suffix.map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
+              <label htmlFor="givenName" className="given-name-label">
+                Patient Name:
+                <div className="fr1-row fr1-row-nolabel ">
+                  <div className="suffix-gname">
+                    <select
+                      onChange={handleChange}
+                      name="prefix"
+                      id="suffix"
+                      value={formData.name.prefix}
+                    >
+                      {suffix.map((item, index) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
 
+                    <input
+                      type="text"
+                      name="givenName"
+                      id="givenName"
+                      value={formData.name.givenName}
+                      onChange={handleChange}
+                      placeholder="Given name"
+                    />
+                  </div>
                   <input
                     type="text"
-                    name="givenName"
-                    id="givenName"
-                    value={formData.name.givenName}
+                    id="middleName"
+                    name="middleName"
+                    value={formData.name.middleName}
                     onChange={handleChange}
-                    placeholder="Given name"
+                    placeholder="Middle name"
+                  />
+                  <input
+                    type="text"
+                    id="surname"
+                    name="surname"
+                    value={formData.name.surname}
+                    onChange={handleChange}
+                    placeholder="Surname"
                   />
                 </div>
-                <input
-                  type="text"
-                  id="middleName"
-                  name="middleName"
-                  value={formData.name.middleName}
-                  onChange={handleChange}
-                  placeholder="Middle name"
-                />
-                <input
-                  type="text"
-                  id="surname"
-                  name="surname"
-                  value={formData.name.surname}
-                  onChange={handleChange}
-                  placeholder="Surname"
-                />
-              </div>
               </label>
               <div className="fr1-row fr1-row-labled ">
                 <label htmlFor="aliasName">
@@ -152,17 +175,16 @@ function Form() {
                 </label>
               </div>
             </div>
-            
-               <label htmlFor= "patientImage" className= "patient-image-label" > 
-              <p> patientImage  </p>   
-            <input
-              className="form-row-1-image"
-              type="text"
-              id="patientImage"
-              name="patientImage"
-              placeholder="Patient Image"
 
-            />
+            <label htmlFor="patientImage" className="patient-image-label">
+              <p> patientImage </p>
+              <input
+                className="form-row-1-image"
+                type="text"
+                id="patientImage"
+                name="patientImage"
+                placeholder="Patient Image"
+              />
             </label>
           </div>
 
@@ -369,6 +391,9 @@ function Form() {
             </div>
           </div>
         </section>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </form>
     </div>
   );
