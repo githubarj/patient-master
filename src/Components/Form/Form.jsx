@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import {
   bloodTypes,
   gender,
@@ -13,18 +13,25 @@ import {
   westlandsWards,
 } from "../../Data/data";
 import "./form.css";
-import { formObject, formUpdate } from "../Utility/utils";
+import { FormContext } from "../../Routes/PatientsForm/PatientsForm";
+
 
 function Form() {
   //get reference of the form
   const formRef = useRef(null);
 
+  //Doing it with state 
   //state to store the data from the form
-  const [formData, setFormData] = useState(formObject);
-
-  function handleChange(e) {
-    formUpdate(e,setFormData);
+  // const [formData, setFormData] = useState(formObject);
+    // function handleChange(e) {
+  //   formUpdate(e,setFormData);
+  // }
+  const { dispatch, formData } = useContext(FormContext)
+  function handleChange (e){
+    let {name , value} = e.target
+    dispatch({type: name, payload: value})
   }
+
 
   return (
     <div className="form-container">

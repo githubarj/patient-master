@@ -67,6 +67,47 @@ export function formUpdate(e, setFormData) {
   }
 }
 
+
+//My Reducerfunction
+
+export function reducer(prev, dispatchedFunction) {
+  const {type, payload} = dispatchedFunction
+  switch (type) {
+    case "clear": 
+      return payload;
+      break;
+    case "prefix":
+    case "givenName":
+    case "middleName":
+    case "surname":
+      return {
+        ...prev,
+        name: { ...prev.name, [type]: payload },
+      };
+      break;
+    case "years":
+    case "dateOfBirth":
+      return {
+        ...prev,
+        age: {...prev.age, [type]: payload ,  years: howOld(prev.age.dateOfBirth)},
+      };
+      break;
+    case "residence":
+    case "constituency":
+    case "county":
+    case "ward":
+      return {
+        ...prev,
+        location: { ...prev.location, [type]: payload },
+      };
+      break;
+
+    default:
+      return { ...prev, [type]: payload };
+  }
+}
+
+
 //function to calculate number of years
 function howOld(dob) {
   const today = new Date();

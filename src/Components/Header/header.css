@@ -1,5 +1,16 @@
 .header-container {
   background: var(--header-color);
-  padding: 10px 0px 20px 20px;
+  padding: 10px 20px 20px 20px;
   border-bottom: 1px solid var(--accent-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-form-btn {
+  padding: 10px;
+  color: var(--red-shade);
+  background: #feecee;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
 }
