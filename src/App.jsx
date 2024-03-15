@@ -17,6 +17,10 @@ const routes = createBrowserRouter([
         path: "patient-form",
         element: <PatientsForm />,
       },
+      {
+        path: "patient-form/:id",
+        element: <PatientsForm />,
+      },
     ],
   },
 ]);

@@ -129,3 +129,11 @@ function howOld(dob) {
   return age;
 }
 
+//search function
+
+// // function search (prev, toSearch ){
+// //   const {type } = toSearch
+// //   switch(type){
+
+// //   }
+// }

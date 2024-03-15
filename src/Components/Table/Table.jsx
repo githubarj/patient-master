@@ -6,8 +6,9 @@ import axios from "axios";
 
 import "./table.css";
 import Loading from "../Loading/Loading";
+import Actions from "../Actions/Actions";
 
-export default function Table({ filter }) {
+export default function Table({ filter, search }) {
   //Making call to the API to fill in my data in the table
   const [tableData, setTableData] = useState();
 
@@ -15,12 +16,17 @@ export default function Table({ filter }) {
     axios
       .get("http://localhost:3000/patients")
       .then((response) => {
-        filter
-          ? setTableData(response.data.filter((item) => item.status === filter))
-          : setTableData(response.data);
+        if (filter) {
+          setTableData(response.data.filter((item) => item.status === filter));
+          // } else if (!search) {
+          //   console.log(search);
+        } else {
+          setTableData(response.data);
+        }
       })
+
       .catch((err) => console.error(err));
-  }, [filter]);
+  }, [filter, search]);
 
   return (
     <div className="table-container">
@@ -59,12 +65,7 @@ export default function Table({ filter }) {
                 </td>
 
                 <td className="tbody-dropdown">
-                  <select name="" id="" className="tbody-actions-select">
-                    <option value="">Actions</option>
-                    <option value="view">View</option>
-                    <option value="edit">Edit</option>
-                    <option value="delete">Delete</option>
-                  </select>
+                <Actions />
                 </td>
               </tr>
             ))}
@@ -77,4 +78,5 @@ export default function Table({ filter }) {
 
 Table.propTypes = {
   filter: PropTypes.string,
+  search: PropTypes.string,
 };
