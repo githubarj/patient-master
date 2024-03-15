@@ -15,6 +15,7 @@ import {
 import "./form.css";
 import { FormContext } from "../../Routes/PatientsForm/PatientsForm";
 import axios from "axios";
+import { useParams } from "react-router";
 
 function Form() {
   //get reference of the form
@@ -26,6 +27,8 @@ function Form() {
     dispatch({ type: name, payload: value });
   }
 
+  //get params to determine if you are updating or adding
+  const { id } = useParams();
   async function handleSubmit(e) {
     e.preventDefault();
     // Get today's date
@@ -34,11 +37,19 @@ function Form() {
     const formattedDate = today.toISOString().split("T")[0];
     console.log(formattedDate);
     dispatch({ type: "registrationDate", payload: formattedDate });
+
     try {
-      let response = await axios.post(
-        "http://localhost:3000/patients",
-        formData
-      );
+      let response;
+      id
+        ? (response = await axios.put(
+            `http://localhost:3000/patients/${id}`,
+            formData
+          ))
+        : (response = await axios.post(
+            "http://localhost:3000/patients",
+            formData
+          ));
+
       if (!(response.status >= 200 && response.status <= 300)) {
         throw new Error(response);
       }
@@ -398,7 +409,7 @@ function Form() {
           </div>
         </section>
         <button type="submit" className="submit-button">
-          Submit
+          {id ? "Update" : "Add"}
         </button>
       </form>
     </div>

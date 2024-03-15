@@ -11,7 +11,7 @@ export default function Header({ heading, clearForm, goBack }) {
     <div className="header-container">
       <p>{heading}</p>
       <div className="header-btns">
-        {location.pathname == "/patient-form" && (
+        {location.pathname.startsWith("/patient-form") && (
           <button className="clear-form-btn" onClick={clearForm}>
             Clear Form
           </button>

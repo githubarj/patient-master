@@ -65,7 +65,7 @@ export default function Table({ filter, search }) {
                 </td>
 
                 <td className="tbody-dropdown">
-                <Actions />
+                <Actions id = {item.id} />
                 </td>
               </tr>
             ))}

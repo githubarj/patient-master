@@ -75,7 +75,8 @@ export function reducer(prev, dispatchedFunction) {
   switch (type) {
     case "clear":
       return payload;
-
+    case "edit":
+      return payload;
     case "prefix":
     case "givenName":
     case "middleName":
