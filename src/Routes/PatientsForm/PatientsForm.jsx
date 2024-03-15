@@ -1,7 +1,8 @@
 import Header from "../../Components/Header/Header";
 import Form from "../../Components/Form/Form";
-import { createContext , useReducer} from "react"
+import { createContext , useCallback, useReducer} from "react"
 import {  reducer, formObject } from "../../Components/Utility/utils"
+import { useNavigate } from "react-router";
 
 export const FormContext = createContext()
 
@@ -14,11 +15,16 @@ function PatientsForm() {
     function clearForm() {
       dispatch({ type: "clear", payload: formObject });
     }
-
+  //Navigating back
+  const navigate = useNavigate()
+  const goBack = useCallback(() => {
+      navigate("../")
+  }, [])
+  
   return (
-  <FormContext.Provider value ={{formData, dispatch}}>
+  <FormContext.Provider value ={{formData, dispatch,  goBack}}>
     <div className="page-container ">
-      <Header heading="Patient Master Register" clearForm={clearForm}  />
+      <Header heading="Patient Master Register" clearForm={clearForm} goBack = {goBack} />
       <Form />
     </div>
   </FormContext.Provider >

@@ -1,20 +1,26 @@
 import { tableHeaders } from "../../Data/data";
 import { useState, useEffect } from "react";
 import { AiOutlineUser } from "react-icons/ai";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import "./table.css";
 import Loading from "../Loading/Loading";
 
-export default function Table() {
+export default function Table({ filter }) {
   //Making call to the API to fill in my data in the table
   const [tableData, setTableData] = useState();
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/patients")
-      .then((response) => setTableData(response.data))
+      .then((response) => {
+        filter
+          ? setTableData(response.data.filter((item) => item.status === filter))
+          : setTableData(response.data);
+      })
       .catch((err) => console.error(err));
-  }, []);
+  }, [filter]);
 
   return (
     <div className="table-container">
@@ -68,3 +74,7 @@ export default function Table() {
     </div>
   );
 }
+
+Table.propTypes = {
+  filter: PropTypes.string,
+};

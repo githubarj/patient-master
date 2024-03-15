@@ -1,6 +1,6 @@
 //data format for the form
 export const formObject = {
-  status: "",
+  status: "Active",
   name: {
     prefix: "",
     givenName: "",

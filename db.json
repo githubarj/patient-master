@@ -577,98 +577,34 @@
       }
     },
     {
-      "id": "1024",
-      "status": "",
+      "id": "f6df",
+      "status": "Active",
       "name": {
         "prefix": "",
-        "givenName": "",
-        "middleName": "",
-        "surname": ""
+        "givenName": "Jeremy",
+        "middleName": "Richard",
+        "surname": "Githuba"
       },
-      "aliasName": "",
-      "gender": "",
-      "bloodType": "",
+      "aliasName": "Taniua",
+      "gender": "Male",
+      "bloodType": "AB+",
       "patientImage": "",
       "age": {
-        "years": "",
-        "dateOfBirth": ""
+        "years": 23,
+        "dateOfBirth": "2000-10-30"
       },
-      "maritalStatus": "",
-      "identify": "",
-      "primaryContact": "",
-      "religion": "",
-      "nationality": "",
-      "occupation": "",
-      "knewUsThrough": "",
+      "maritalStatus": "Single",
+      "identify": "123456",
+      "primaryContact": "0798320724",
+      "religion": "Christianity",
+      "nationality": "Kenyan",
+      "occupation": "Software Developer",
+      "knewUsThrough": "Twitter",
       "location": {
-        "residence": "",
-        "county": "",
-        "constituency": "",
-        "ward": ""
-      },
-      "registrationDate": ""
-    },
-    {
-      "id": "1a39",
-      "status": "",
-      "name": {
-        "prefix": "",
-        "givenName": "",
-        "middleName": "",
-        "surname": ""
-      },
-      "aliasName": "",
-      "gender": "",
-      "bloodType": "",
-      "patientImage": "",
-      "age": {
-        "years": "",
-        "dateOfBirth": ""
-      },
-      "maritalStatus": "",
-      "identify": "",
-      "primaryContact": "",
-      "religion": "",
-      "nationality": "",
-      "occupation": "",
-      "knewUsThrough": "",
-      "location": {
-        "residence": "",
-        "county": "",
-        "constituency": "",
-        "ward": ""
-      },
-      "registrationDate": ""
-    },
-    {
-      "id": "f1d6",
-      "status": "",
-      "name": {
-        "prefix": "",
-        "givenName": "",
-        "middleName": "",
-        "surname": ""
-      },
-      "aliasName": "",
-      "gender": "",
-      "bloodType": "",
-      "patientImage": "",
-      "age": {
-        "years": "",
-        "dateOfBirth": ""
-      },
-      "maritalStatus": "",
-      "identify": "",
-      "primaryContact": "",
-      "religion": "",
-      "nationality": "",
-      "occupation": "",
-      "knewUsThrough": "",
-      "location": {
-        "residence": "",
-        "county": "",
-        "constituency": "",
-        "ward": ""
+        "residence": "Nairobi",
+        "county": "Nairobi",
+        "constituency": "Westlands",
+        "ward": "Kitisuru"
       },
       "registrationDate": ""
     }

@@ -18,6 +18,7 @@ form {
 
 .form-itself label {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
@@ -129,4 +130,16 @@ form {
   background: #b6ea8f;
   border-radius: 5px;
   font-weight: bold;
+}
+
+.required::before {
+  content: "*";
+  color: var(--red-shade);
+  position: absolute;
+  right: 101%;
+  top: 3px;
+}
+
+.age-years {
+  background: #d9d8d9;
 }

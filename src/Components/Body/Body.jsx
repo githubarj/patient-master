@@ -3,27 +3,24 @@ import { FaFingerprint } from "react-icons/fa";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { AiOutlineFileExcel } from "react-icons/ai";
 import { AiOutlineFilePdf } from "react-icons/ai";
-import { status } from "../../Data/data";
 import Table from "../Table/Table";
 import { useNavigate } from "react-router";
+import Filter from "../Filter/Filter";
+import { useState } from "react";
 
 function Body() {
   //Navigate to next add patient page
   const navigate = useNavigate();
+
+  const [filter, setFilter] = useState();
+  console.log(filter);
 
   return (
     <div className="body-container">
       <section className="action-area">
         {/* The search inputs and select */}
         <div className="search-inputs">
-          <select name="" id=""  >
-            <option value="">Filter by status</option>
-            {status.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
+          <Filter setFilter={setFilter} />
           <label htmlFor="">
             <input type="text" />
           </label>
@@ -53,7 +50,7 @@ function Body() {
           </div>
         </div>
       </section>
-      <Table />
+      <Table filter={filter} />
     </div>
   );
 }

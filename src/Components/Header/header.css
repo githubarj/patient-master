@@ -6,11 +6,24 @@
   justify-content: space-between;
 }
 
-.clear-form-btn {
+.header-btns button {
   padding: 10px;
-  color: var(--red-shade);
-  background: #feecee;
   border: none;
   border-radius: 5px;
   font-weight: bold;
+}
+
+.clear-form-btn {
+  color: var(--red-shade);
+  background: #feecee;
+}
+
+.header-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.back-nav-btn {
+  color: var(--gey-shade);
+  background: var(--accent-color);
 }

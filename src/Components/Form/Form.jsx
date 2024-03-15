@@ -19,14 +19,8 @@ import axios from "axios";
 function Form() {
   //get reference of the form
   const formRef = useRef(null);
+  const { dispatch, formData, goBack } = useContext(FormContext);
 
-  //Doing it with state
-  //state to store the data from the form
-  // const [formData, setFormData] = useState(formObject);
-  // function handleChange(e) {
-  //   formUpdate(e,setFormData);
-  // }
-  const { dispatch, formData } = useContext(FormContext);
   function handleChange(e) {
     let { name, value } = e.target;
     dispatch({ type: name, payload: value });
@@ -38,10 +32,9 @@ function Form() {
     const today = new Date();
     // Format today's date as YYYY-MM-DD
     const formattedDate = today.toISOString().split("T")[0];
-    console.log(formattedDate)
-      dispatch({ type: "registrationDate", payload: formattedDate });
+    console.log(formattedDate);
+    dispatch({ type: "registrationDate", payload: formattedDate });
     try {
-     
       let response = await axios.post(
         "http://localhost:3000/patients",
         formData
@@ -49,8 +42,9 @@ function Form() {
       if (!(response.status >= 200 && response.status <= 300)) {
         throw new Error(response);
       }
-
       console.log(response);
+      alert("Patient Added SucessFully");
+      goBack();
     } catch (err) {
       console.error(err);
     }
@@ -60,13 +54,14 @@ function Form() {
     <div className="form-container">
       <form ref={formRef} className="form-itself" onSubmit={handleSubmit}>
         <section className="form-active-select">
-          <label htmlFor="">
+          <label htmlFor="status" className="required">
             Status:
             <select
               onChange={handleChange}
               name="status"
               id="status"
               value={formData.status}
+              required
             >
               {status.map((item, index) => (
                 <option key={index} value={item}>
@@ -105,6 +100,7 @@ function Form() {
                       value={formData.name.givenName}
                       onChange={handleChange}
                       placeholder="Given name"
+                      required
                     />
                   </div>
                   <input
@@ -122,6 +118,7 @@ function Form() {
                     value={formData.name.surname}
                     onChange={handleChange}
                     placeholder="Surname"
+                    required
                   />
                 </div>
               </label>
@@ -138,13 +135,14 @@ function Form() {
                   />
                 </label>
 
-                <label htmlFor="gender">
+                <label htmlFor="gender" className="required">
                   Gender:
                   <select
                     name="gender"
                     id="gender"
                     value={formData.gender}
                     onChange={handleChange}
+                    required
                   >
                     <option value="" disabled hidden></option>
                     {gender.map((item, index) => (
@@ -184,6 +182,7 @@ function Form() {
                 id="patientImage"
                 name="patientImage"
                 placeholder="Patient Image"
+                disabled
               />
             </label>
           </div>
@@ -199,9 +198,10 @@ function Form() {
                   value={formData.age.years}
                   name="years"
                   id="years"
+                  className="age-years"
                 />
               </label>
-              <label htmlFor="dateOfBirth">
+              <label htmlFor="dateOfBirth" className="required">
                 Date of Birth:
                 <input
                   onChange={handleChange}
@@ -209,6 +209,7 @@ function Form() {
                   value={formData.age.dateOfBirth}
                   name="dateOfBirth"
                   id="dateOfBirth"
+                  required
                 />
               </label>
               <label htmlFor="maritalStatus">
@@ -241,7 +242,7 @@ function Form() {
               </label>
             </div>
             <div className="fr2-row">
-              <label htmlFor="primaryContact">
+              <label htmlFor="primaryContact" className="required">
                 Primary Contact:
                 <input
                   onChange={handleChange}
@@ -250,9 +251,12 @@ function Form() {
                   value={formData.primaryContact}
                   name="primaryContact"
                   id="primaryContact"
+                  pattern="\d{10}"
+                  min="0"
+                  required
                 />
               </label>
-              <label htmlFor="dateOfBirth">
+              <label htmlFor="dateOfBirth" className="required">
                 Residence:
                 <input
                   onChange={handleChange}
@@ -260,6 +264,7 @@ function Form() {
                   value={formData.location.residence}
                   name="residence"
                   id="residence"
+                  required
                 />
               </label>
               <label htmlFor="religion">
@@ -281,7 +286,7 @@ function Form() {
                 </select>
               </label>
 
-              <label htmlFor="nationality">
+              <label htmlFor="nationality" className="required">
                 Nationality:
                 <input
                   onChange={handleChange}
@@ -289,6 +294,7 @@ function Form() {
                   name="nationality"
                   id="nationality"
                   value={formData.nationality}
+                  required
                 />
               </label>
             </div>
