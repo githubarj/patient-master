@@ -4,3 +4,17 @@
   min-height: 100%;
   overflow: hidden;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  visibility: hidden;
+  /* transition: visibility 0.3s ease-in-out; */
+}
+.show-element {
+  visibility: visible;
+}

@@ -1,13 +1,22 @@
 import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
+import { TableContext } from "../../Routes/PatientsTable/PatientsTable";
+import { useContext } from "react";
 
 function Actions({ id }) {
   const navigate = useNavigate();
 
   function setAction(e) {
     const { value } = e.target;
-    value == "edit" && navigate(`patient-form/${id}`);
+    if (value == "edit") {
+      navigate(`patient-form/${id}`);
+    } else if (value == "delete") {
+      togglePopup();
+      setOpen((prev) => ({ ...prev, id: id }));
+    }
   }
+
+  const { togglePopup, setOpen } = useContext(TableContext);
 
   return (
     <select name="" id="" className="tbody-actions-select" onChange={setAction}>

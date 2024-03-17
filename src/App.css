@@ -3,4 +3,5 @@
   min-width: 100vw;
   background: var(--accent-color);
   padding: 20px;
+  position: relative;
 }

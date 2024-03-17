@@ -4,22 +4,20 @@ import PropTypes from "prop-types";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
 
-function DeleteConfirmation() {
-
-
-
+function DeleteConfirmation({ togglePopup, deletePopup }) {
   // toggle a rerender after the delete function runs sucessfully if on home page
 
   async function deleteItem() {
     try {
       let response = await axios.delete(
-        `http://localhost:3000/products/${deleteId}`
+        `http://localhost:3000/patients/${deletePopup.id}`
       );
       if (!(response.status >= 200 && response.status < 300)) {
         throw new Error(response);
       } else {
         console.log(response);
         await alert(`Item deleted successfully`);
+        togglePopup();
       }
     } catch (err) {
       console.error(err);
@@ -28,9 +26,13 @@ function DeleteConfirmation() {
   }
 
   return (
-    <div className={`delete-warning-container ${open && "show-element"}`}>
+    <div
+      className={`delete-warning-container ${
+        deletePopup.open && "show-element"
+      }`}
+    >
       <div className="d-w-close-icon">
-        <MdClose onClick={deleteConfirmationToggle} />
+        <MdClose onClick={togglePopup} />
       </div>
       <div className="d-w-content">
         <div className="delete-icon">
@@ -42,7 +44,7 @@ function DeleteConfirmation() {
         </p>
       </div>
       <div className="d-w-buttons">
-        <button className="d-w-cancel-btn" onClick={deleteConfirmationToggle}>
+        <button className="d-w-cancel-btn" onClick={togglePopup}>
           Canclel
         </button>
         <button className="d-w-delete-btn" onClick={deleteItem}>
@@ -54,9 +56,8 @@ function DeleteConfirmation() {
 }
 
 DeleteConfirmation.propTypes = {
-  open: PropTypes.bool,
-  deleteConfirmationToggle: PropTypes.func,
-  deleteId: PropTypes.number,
+  togglePopup: PropTypes.object,
+  deletePopup: PropTypes.func,
 };
 
 export default DeleteConfirmation;

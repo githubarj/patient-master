@@ -545,39 +545,7 @@
       }
     },
     {
-      "id": "7890",
-      "status": "Active",
-      "registrationDate": "2022-12-03",
-      "name": {
-        "prefix": "",
-        "givenName": "Oliver",
-        "middleName": "Daniel",
-        "surname": "Davis"
-      },
-      "aliasName": "Oli",
-      "gender": "Male",
-      "bloodType": "O-",
-      "patientImage": "",
-      "age": {
-        "years": 37,
-        "dateOfBirth": "1987-03-10"
-      },
-      "maritalStatus": "Married",
-      "identify": "345678",
-      "primaryContact": "0723456789",
-      "religion": "Christianity",
-      "nationality": "British",
-      "occupation": "Doctor",
-      "knewUsThrough": "Colleague",
-      "location": {
-        "residence": "Manchester",
-        "county": "Greater Manchester",
-        "constituency": "Manchester Central",
-        "ward": "City Centre"
-      }
-    },
-    {
-      "id": "f6df",
+      "id": "98a7",
       "status": "Active",
       "name": {
         "prefix": "",
@@ -585,26 +553,26 @@
         "middleName": "Richard",
         "surname": "Githuba"
       },
-      "aliasName": "Taniua",
+      "aliasName": "",
       "gender": "Male",
-      "bloodType": "AB+",
+      "bloodType": "",
       "patientImage": "",
       "age": {
-        "years": 23,
-        "dateOfBirth": "2000-10-30"
+        "years": 1,
+        "dateOfBirth": "2023-02-02"
       },
-      "maritalStatus": "Single",
-      "identify": "123456",
+      "maritalStatus": "",
+      "identify": "",
       "primaryContact": "0798320724",
-      "religion": "Christianity",
+      "religion": "",
       "nationality": "Kenyan",
-      "occupation": "Software Developer",
-      "knewUsThrough": "Twitter",
+      "occupation": "",
+      "knewUsThrough": "",
       "location": {
         "residence": "Nairobi",
-        "county": "Nairobi",
-        "constituency": "Westlands",
-        "ward": "Kitisuru"
+        "county": "",
+        "constituency": "",
+        "ward": ""
       },
       "registrationDate": ""
     }

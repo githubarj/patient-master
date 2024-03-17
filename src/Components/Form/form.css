@@ -22,8 +22,7 @@ form {
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
-  flex-grow: 1;
-  max-width: 300px;
+  flex: 0 1 300px;
 }
 
 .form-body {
@@ -69,7 +68,7 @@ form {
 }
 
 .suffix-gname {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width: 100%;
 }
 
@@ -93,11 +92,7 @@ form {
 }
 
 .given-name-label {
-  max-width: none !important;
-}
-
-.form-row-1-inputs label {
-  max-width: none !important;
+  flex: 0 0 0 !important;
 }
 
 .fr1-row-labled label {
@@ -142,4 +137,8 @@ form {
 
 .age-years {
   background: #d9d8d9;
+}
+
+select#status {
+  max-width: 300px;
 }

@@ -12,6 +12,8 @@ export default function Table({ filter, search }) {
   //Making call to the API to fill in my data in the table
   const [tableData, setTableData] = useState();
 
+ 
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/patients")

@@ -106,9 +106,10 @@ export function reducer(prev, dispatchedFunction) {
         location: { ...prev.location, [type]: payload },
       };
     case "registrationDate":
+      console.log(payload);
       return {
         ...prev,
-        [type]: payload,
+        registrationDate: payload,
       };
     default:
       return { ...prev, [type]: payload };

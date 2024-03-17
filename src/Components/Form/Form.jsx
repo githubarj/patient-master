@@ -37,7 +37,7 @@ function Form() {
     const formattedDate = today.toISOString().split("T")[0];
     console.log(formattedDate);
     dispatch({ type: "registrationDate", payload: formattedDate });
-
+    console.log(formData);
     try {
       let response;
       id

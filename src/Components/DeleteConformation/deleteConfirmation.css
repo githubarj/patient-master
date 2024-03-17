@@ -47,13 +47,14 @@
 }
 
 .d-w-cancel-btn {
-  background: none;
+  background: var(--accent-color);
   color: black;
   border: 1px solid #706f6f;
 }
 
 .d-w-delete-btn {
-  background: #ea3c4d;
+  background: #feecee;
+  color: #ea3c4d;
 }
 
 .show-element {
@@ -72,3 +73,12 @@
   height: 20px;
   cursor: pointer;
 }
+
+.d-w-buttons button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
