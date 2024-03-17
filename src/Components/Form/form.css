@@ -27,6 +27,10 @@ form input {
   width: 100%;
 }
 
+form input::placeholder {
+  color: #d9d8d9;
+}
+
 form label {
   display: flex;
   position: relative;
@@ -110,5 +114,6 @@ form label {
 }
 
 .form-active-select label {
-  max-width: 300px !important ;
+  width: calc(25% - 15px);
 }
+
