@@ -4,116 +4,86 @@
 
 form {
   display: flex;
-  gap: 8px;
   flex-direction: column;
+  gap: 10px;
 }
 
-.form-itself select,
-.form-itself input {
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-body-heading {
+  font-size: large;
+  margin-left: 70px;
+}
+
+form select,
+form input {
   padding: 10px;
   border: 1px solid #d9d8d9;
   border-radius: 5px;
   width: 100%;
 }
 
-.form-itself label {
+form label {
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  flex: 0 1 300px;
+  gap: 15px;
+  justify-content: flex-end;
 }
 
-.form-body {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.form-part-2 {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  gap: 15px 10px;
 }
 
-.form-body > p {
-  font-size: large;
-  margin-left: 70px;
+.form-part-1 {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  gap: 15px 10px;
 }
 
-.form-body > .form-row-1 {
-  display: flex;
-  gap: 20px;
-  width: 100%;
+.form-row-1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 15px;
 }
 
-.form-row-1-inputs,
-.form-row-2,
-.form-row-3 {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  gap: 20px;
-}
-
-.fr1-row,
-.fr2-row,
-.fr3-row {
-  display: flex;
-  flex-grow: 1;
-  gap: 10px;
-}
-
-.suffix-gname {
-  display: flex;
+.form-row-1 > div {
+  grid-column: 1 / 4;
 }
 
 .form-row-1-image {
   max-width: 150px;
+  height: 100%;
+  border: 1px dashed #d9d8d9;
+  text-align: center;
 }
 
 .suffix-gname {
-  /* flex-grow: 1; */
-  width: 100%;
+  display: flex;
 }
 
 .suffix-gname select {
-  width: fit-content !important;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-radius: 5px 0 0 5px;
   background-color: #d9d8d9;
+  flex: 1;
+}
+.suffix-gname input {
+  border-radius: 0 5px 5px 0;
+  flex: 3;
 }
 
 .suffix-gname option {
   background: #fff;
 }
 
-.suffix-gname input {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-.fr1-row-nolabel {
-  width: 100%;
-}
-
-.given-name-label {
-  flex: 0 0 0 !important;
-}
-
-.fr1-row-labled label {
-  flex: 1 !important;
-}
-
-.form-row-1-image {
-  height: 100%;
-}
-
-.patient-image-label {
-  max-width: fit-content !important ;
-}
-
 .patient-image-label > p {
   opacity: 0;
-}
-
-.form-row-1-image {
-  background: #d9d8d9;
-  text-align: center;
 }
 
 .submit-button {
@@ -139,6 +109,6 @@ form {
   background: #d9d8d9;
 }
 
-select#status {
-  max-width: 300px;
+.form-active-select label {
+  max-width: 300px !important ;
 }
