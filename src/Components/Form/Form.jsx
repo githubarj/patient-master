@@ -1,4 +1,4 @@
-import { useRef, useContext } from "react";
+import { useRef, useContext, useEffect, useMemo } from "react";
 import {
   bloodTypes,
   gender,
@@ -16,16 +16,34 @@ import "./form.css";
 import { FormContext } from "../../Routes/PatientsForm/PatientsForm";
 import axios from "axios";
 import { useParams } from "react-router";
+import { howOld } from "../Utility/utils";
 
 function Form() {
   //get reference of the form
   const formRef = useRef(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const { dispatch, formData, goBack } = useContext(FormContext);
 
   function handleChange(e) {
     let { name, value } = e.target;
     dispatch({ type: name, payload: value });
   }
+
+  // update the age
+  const age = useMemo(() => {
+    return howOld(formData.age.dateOfBirth);
+  }, [formData.age.dateOfBirth]);
+
+  useEffect(() => {
+    if (!isNaN(age)) {
+      dispatch({ type: "years", payload: age });
+    }
+  }, [age]);
 
   //get params to determine if you are updating or adding
   const { id } = useParams();
@@ -34,21 +52,19 @@ function Form() {
     // Get today's date
     const today = new Date();
     // Format today's date as YYYY-MM-DD
-    const formattedDate = today.toISOString().split("T")[0];
-    console.log(formattedDate);
-    dispatch({ type: "registrationDate", payload: formattedDate });
-    console.log(formData);
+
     try {
       let response;
+      let formattedDate = await today.toISOString().split("T")[0];
       id
         ? (response = await axios.put(
             `http://localhost:3000/patients/${id}`,
             formData
           ))
-        : (response = await axios.post(
-            "http://localhost:3000/patients",
-            formData
-          ));
+        : (response = await axios.post("http://localhost:3000/patients", {
+            ...formData,
+            registrationDate: formattedDate,
+          }));
 
       if (!(response.status >= 200 && response.status <= 300)) {
         throw new Error(response);
@@ -111,6 +127,7 @@ function Form() {
                     onChange={handleChange}
                     placeholder="Given name"
                     required
+                    ref={inputRef}
                   />
                 </div>
               </label>

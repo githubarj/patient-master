@@ -28,6 +28,77 @@ export const formObject = {
   registrationDate: "",
 };
 
+//My Reducer function
+
+export function reducer(prev, dispatchedFunction) {
+  const { type, payload } = dispatchedFunction;
+  switch (type) {
+    case "clear":
+      return payload;
+    case "edit":
+      return payload;
+    case "prefix":
+    case "givenName":
+    case "middleName":
+    case "surname":
+      return {
+        ...prev,
+        name: { ...prev.name, [type]: payload },
+      };
+
+    case "years":
+    case "dateOfBirth":
+      return {
+        ...prev,
+        age: {
+          ...prev.age,
+          [type]: payload,
+        },
+      };
+
+    case "residence":
+    case "constituency":
+    case "county":
+    case "ward":
+      return {
+        ...prev,
+        location: { ...prev.location, [type]: payload },
+      };
+    case "registrationDate":
+      console.log(payload);
+      return {
+        ...prev,
+        registrationDate: payload,
+      };
+    default:
+      return { ...prev, [type]: payload };
+  }
+}
+
+//function to calculate number of years
+export function howOld(dob) {
+  const today = new Date();
+  const dateOfBirth = new Date(dob);
+  let age = today.getFullYear() - dateOfBirth.getFullYear();
+  const monthDiff = today.getMonth() - dateOfBirth.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < dateOfBirth.getDate())
+  ) {
+    age--;
+  }
+  return age;
+}
+
+//search function
+
+// // function search (prev, toSearch ){
+// //   const {type } = toSearch
+// //   switch(type){
+
+// //   }
+// }
+
 //function to watch out for chnage in the form and implement it
 export function formUpdate(e, setFormData) {
   const { name, value } = e.target;
@@ -67,75 +138,3 @@ export function formUpdate(e, setFormData) {
       setFormData((prev) => ({ ...prev, [name]: value }));
   }
 }
-
-//My Reducer function
-
-export function reducer(prev, dispatchedFunction) {
-  const { type, payload } = dispatchedFunction;
-  switch (type) {
-    case "clear":
-      return payload;
-    case "edit":
-      return payload;
-    case "prefix":
-    case "givenName":
-    case "middleName":
-    case "surname":
-      return {
-        ...prev,
-        name: { ...prev.name, [type]: payload },
-      };
-
-    case "years":
-    case "dateOfBirth":
-      return {
-        ...prev,
-        age: {
-          ...prev.age,
-          [type]: payload,
-          years: howOld(prev.age.dateOfBirth),
-        },
-      };
-
-    case "residence":
-    case "constituency":
-    case "county":
-    case "ward":
-      return {
-        ...prev,
-        location: { ...prev.location, [type]: payload },
-      };
-    case "registrationDate":
-      console.log(payload);
-      return {
-        ...prev,
-        registrationDate: payload,
-      };
-    default:
-      return { ...prev, [type]: payload };
-  }
-}
-
-//function to calculate number of years
-function howOld(dob) {
-  const today = new Date();
-  const dateOfBirth = new Date(dob);
-  let age = today.getFullYear() - dateOfBirth.getFullYear();
-  const monthDiff = today.getMonth() - dateOfBirth.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < dateOfBirth.getDate())
-  ) {
-    age--;
-  }
-  return age;
-}
-
-//search function
-
-// // function search (prev, toSearch ){
-// //   const {type } = toSearch
-// //   switch(type){
-
-// //   }
-// }
