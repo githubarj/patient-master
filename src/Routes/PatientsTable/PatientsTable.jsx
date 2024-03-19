@@ -14,14 +14,11 @@ export default function PatientsTable() {
   document.body.style.overflowY = deletePopup.open ? "hidden" : "auto";
 
   return (
-    <TableContext.Provider value={{ togglePopup, setId }}>
+    <TableContext.Provider value={{deletePopup,  togglePopup, setId }}>
       <div className="page-container ">
         <Header heading={"Patient Master Register"} />
         <Body />
-        <DeleteConfirmation
-          deletePopup={deletePopup}
-          togglePopup={togglePopup}
-        />
+        <DeleteConfirmation />
       </div>
       <div className={`overlay ${deletePopup.open && "show-element"} `}></div>
     </TableContext.Provider>

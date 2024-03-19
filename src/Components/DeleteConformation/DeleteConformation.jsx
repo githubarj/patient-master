@@ -3,10 +3,13 @@ import { MdDeleteForever } from "react-icons/md";
 import PropTypes from "prop-types";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
+import { useContext } from "react";
+import { TableContext } from "../../Routes/PatientsTable/PatientsTable";
 
-function DeleteConfirmation({ togglePopup, deletePopup }) {
+function DeleteConfirmation() {
   // toggle a rerender after the delete function runs sucessfully if on home page
 
+  const { togglePopup, deletePopup } = useContext(TableContext);
   async function deleteItem() {
     try {
       let response = await axios.delete(

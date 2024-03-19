@@ -12,7 +12,7 @@ export function useToggle() {
       case "id":
         return {
           ...prevState,
-          [type]: payload,
+          id: payload, // Correctly update the id property
         };
       case "toggle":
         return {
