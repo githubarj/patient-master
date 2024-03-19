@@ -1,25 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import Body from "../../Components/Body/Body";
 import DeleteConfirmation from "../../Components/DeleteConformation/DeleteConformation";
 import Header from "../../Components/Header/Header";
 import "./patientsTable.css";
+import { useToggle } from "../../Components/Hooks/useToggle";
 
 export const TableContext = createContext();
 
 export default function PatientsTable() {
-  const [deletePopup, setOpen] = useState({
-    open: false,
-    id: "",
-  });
-
-  function togglePopup() {
-    setOpen((prev) => ({ ...prev, open: !prev.open }));
-  }
+  
+  const {deletePopup, togglePopup, setId} = useToggle()
 
   document.body.style.overflowY = deletePopup.open ? "hidden" : "auto";
 
   return (
-    <TableContext.Provider value={{ togglePopup, setOpen }}>
+    <TableContext.Provider value={{ togglePopup, setId }}>
       <div className="page-container ">
         <Header heading={"Patient Master Register"} />
         <Body />

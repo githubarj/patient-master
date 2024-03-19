@@ -12,11 +12,11 @@ function Actions({ id }) {
       navigate(`patient-form/${id}`);
     } else if (value == "delete") {
       togglePopup();
-      setOpen((prev) => ({ ...prev, id: id }));
+      setId(id);
     }
   }
 
-  const { togglePopup, setOpen } = useContext(TableContext);
+  const { togglePopup, setId } = useContext(TableContext);
 
   return (
     <select name="" id="" className="tbody-actions-select" onChange={setAction}>
