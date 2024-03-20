@@ -117,3 +117,31 @@ form label {
   width: calc(25% - 15px);
 }
 
+/* 3 columns per row (≥ 768px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .form-part-2,
+  .form-row-1 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+/* 2 columns per row (≥ 576px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+   .form-part-2,
+  .form-row-1,
+  .form-part-1 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+/* 1 column per row (< 576px) */
+@media screen and (max-width: 575px) {
+   .form-part-2,
+  .form-row-1,
+  .form-part-1 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
+}

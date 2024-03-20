@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import PropTypes from "prop-types";
 import { TableContext } from "../../Routes/PatientsTable/PatientsTable";
 import { useContext } from "react";
+// import { useToggle } from "../Hooks/useToggle";
 
 function Actions({ id }) {
   const navigate = useNavigate();
@@ -15,6 +16,10 @@ function Actions({ id }) {
       setId(id);
     }
   }
+
+  // const {togglePopup, setId} = useToggle()
+  // const { togglePopup, setId } = useToggle();
+
 
   const { togglePopup, setId } = useContext(TableContext);
 
